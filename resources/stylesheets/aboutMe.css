@@ -1,0 +1,31 @@
+@import url(https://fonts.googleapis.com/css?family=Libre+Baskerville&subset=latin,latin-ext);
+
+header{
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.25em;
+    text-align: center;
+    height: 30%;
+    width: auto;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+a{
+    color: #d4ffff;
+    text-decoration: none;
+}
+ul{
+    padding: 10px;
+    background: #000000;
+}
+li{
+    display: inline;
+    padding: 0px 10px 0px 10px;
+}
+body{
+    background: #cccccc;
+}
+.topDiv{
+    padding: 1em 32% 1em 32%;
+}
