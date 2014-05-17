@@ -9,7 +9,6 @@ header{
     background: url('../images/bg-head-5.jpg');
     background-size: cover;
     background-position: center;
-
 }
 .main{
     height: 10em;
@@ -41,8 +40,15 @@ body{
 }
 .topDiv{
     padding: 1em 32% 1em 32%;
-
 }
 .aboutMe{
     background: blue;
+}
+.main{
+    transition: all 0.5s linear 0.5s;
+
+}
+.hidden {
+    opacity: 0;
+    height: 0;
 }

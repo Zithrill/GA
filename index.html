@@ -3,24 +3,54 @@
     <head>
         <link rel="stylesheet" type="text/css" href="resources/stylesheets/aboutMe.css">
         <title>About Jacob Gribschaw</title>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script type="text/javascript">
             //We want to wait until the page loads to run this script
             window.onload = function(){
                 //This array fold the element ids so that we can call them
                 var pageSections = ["aboutMe","experience","contactInfo","pictureReel"];
                 //Initialize the current element var to an element that isn't in the array
-                var activeElement = -1;
+                var activeElementID = -1;
+                //We need to watch that a link isn't clicked when we are transitioning to preserve some sync
+                var inTransition = false;
                 //This function will actually show and hide the corresponding elements
-                var revealSection = function(elementNumber){
+                var revealSection = function(elementIn){
                     //Here we are basically checking to see if this is the first run
-                    if (activeElement != -1) {
-                        //If another element has been shown we want to close id first then open the new one
-                        document.getElementById(pageSections[activeElement]).style.display = "none";
+                    if (activeElementID != elementIn || !inTransition) {
+                        if (activeElementID != -1) {
+                            //If another element has been shown we want to close id first then open the new one
+                            var currentElement = document.getElementById(pageSections[activeElementID]);
+                            //setting a flag during transition
+                            inTransition = true;
+                            //However we like to do that with style, so we animate it
+                            $(currentElement).toggleClass('hidden', true);
+                            //add a listener so we can remove the element once the animation is finished
+                            currentElement.addEventListener('transitionend', function(e){
+                                currentElement.style.display = "none";
+                                $(currentElement).toggleClass('hidden', false);
+                                displaySection(elementIn);
+                                inTransition = false;
+                            });
+                        }
+                        else{
+                            displaySection(elementIn);
+                        };
                     };
+                };
+                //This is the function that will display the element
+                var displaySection = function (elementNumber) {
+                    //setting a flag during transition
+                    inTransition = true;
                     //Setting the display to block will have the specified element visible 
-                    var element = document.getElementById(pageSections[elementNumber]).style.display = "block";
+                    var element = document.getElementById(pageSections[elementNumber]);
+                    $(element).toggleClass('hidden', true);
+                    element.style.display = "block";
+                    $(element).toggleClass('hidden', false);
+                    element.addEventListener('transitionend', function(e){
+                         inTransition = false;
+                    });
                     //Recording the currently open element for future use
-                    activeElement = elementNumber;
+                    activeElementID = elementNumber;
                 };
                 //Getting elements from the page
                 var aboutMeLinkElement = document.getElementById("aboutMeLink");
@@ -54,23 +84,38 @@
             </div>
             <h1>Jake</h1>
             <ul>
-                <li><a href="#aboutMe", id="aboutMeLink">About Me</a></li>
-                <li><a href="#experience", id="experienceLink">My Experience</a></li>
-                <li><a href="#contactInfo", id="contactInfoLink">Contact Info</a></li>
-                <li><a href="#pictureReel", id="pictureReelLink">Life in Moving Stills</a></li>
+                <li><a href="#", id="aboutMeLink">About Me</a></li>
+                <li><a href="#", id="experienceLink">My Experience</a></li>
+                <li><a href="#", id="contactInfoLink">Contact Info</a></li>
+                <li><a href="#", id="pictureReelLink">Life in Moving Stills</a></li>
             </ul>
         </header>
-        <div id="aboutMe", class="main aboutMe show-element">
-            
+        <div id="aboutMe", class="main aboutMe">
+            <article class="text-information">
+                <h1>About Me</h1>
+                <p>
+                    Hi my name is Jake,
+                    I'm an aspiring programmer in San Fransisco 
+                </p>
+            </article>    
         </div>
-        <div id="experience", class="main experience show-element">
-            
+        <div id="experience", class="main experience">
+            <article class="text-information">
+                <h1>My Experience</h1>
+                <p>
+                    C++, Java, Ruby, NodeJS, JavaScript
+                </p>
+            </article>   
         </div>
-        <div id="contactInfo", class="main contactInfo show-element">
-            
+        <div id="contactInfo", class="main contactInfo">
+            <article class="text-information">
+                <p>
+                    linkedIn
+                </p>
+            </article>   
         </div>
-        <div id="pictureReel", class="main pictureReel show-element">
-            
+        <div id="pictureReel", class="main pictureReel">
+            <!-- This will be populated by JS and intentionally left blank -->
         </div>
     </body>
 </html>
