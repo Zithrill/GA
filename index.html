@@ -19,7 +19,7 @@
                     };
                     //Setting the display to block will have the specified element visible 
                     var element = document.getElementById(pageSections[elementNumber]).style.display = "block";
-                    //Recording the currently open element
+                    //Recording the currently open element for future use
                     activeElement = elementNumber;
                 };
                 //Getting elements from the page
@@ -28,10 +28,22 @@
                 var contactInfoElement = document.getElementById("contactInfoLink");
                 var pictureReelElement = document.getElementById("pictureReelLink");
                 //Setting listeners on the elements
-                aboutMeLinkElement.onclick = revealSection(0);
-                experienceElement.onclick = revealSection(1);
-                contactInfoElement.onclick = revealSection(2);
-                pictureReelElement.onclick = revealSection(3);
+                aboutMeLinkElement.addEventListener('click', function() {
+                    revealSection(0);
+                }, false);
+                experienceElement.addEventListener('click', function() {
+                    revealSection(1);
+                }, false);
+                contactInfoElement.addEventListener('click', function() {
+                    revealSection(2);
+                }, false);
+                pictureReelElement.addEventListener('click', function() {
+                    revealSection(3);
+                }, false);
+                //On first run we want to make sure that none of the elements are displayed
+                for (var i = pageSections.length - 1; i >= 0; i--) {
+                    document.getElementById(pageSections[i]).style.display = "none";
+                };
              }    
         </script>
     </head>
