@@ -10,12 +10,6 @@ header{
     background-size: cover;
     background-position: center;
 }
-.main{
-    height: 10em;
-    width: 10em;
-    background: green;
-    display: none;
-}
 img{
     max-width: 100%;
     height: auto;
@@ -45,10 +39,11 @@ body{
     background: blue;
 }
 .main{
+    height: 10em;
+    width: 10em;
+    background: green;
     transition: all 0.5s linear 0.5s;
-
 }
-.hidden {
-    opacity: 0;
-    height: 0;
+.hidden{
+    display: none;
 }
