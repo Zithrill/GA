@@ -72,13 +72,22 @@ p{
     right: 0.1%;
     top: 0px;
     z-index: 2;
-    padding: 1em 1em 0 0;
+    margin: 1em 1em 0 0;
 }
 .bottomImage{
-    position:absolute;
-
+/*  This is how I initially kept the image at the bottom of the page
+    however with the design it looked like it was dangling so I 
+    made the decision to move it to the bottom of the header instead
+    just above the navi bar.
+    
+    position: absolute;
     z-index: 2;
-    padding: 0.5em 1em 1em 0em;
+*/
+    position: absolute;
+    top: 45.5%;
+    left: 1%;
+    z-index: 2;
+    margin: 0.5em 1em 1em 0em;
 }
 .imageBox p{
     font-family: 'Gilda Display', serif;
