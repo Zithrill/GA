@@ -7,7 +7,8 @@
         <script type="text/javascript">
             //We want to wait until the page loads to run this script
             window.onload = function(){
-
+                //Max number of images we will look for this many images in the resource/image folder
+                var maxImages = 5;
                 //This array fold the element ids so that we can call them
                 var pageSections = ["#aboutMe","#experience","#contactInfo","#pictureReel"];
                 //Button ID's
@@ -38,21 +39,24 @@
                 for (var i = 0; i <= 5; i++) {
                     imgArray[i] = 'resources/images/image-' + i + '.jpg';
                 };
+                //Function to set the image
+                function setImage () {
+                    document.getElementById('pictureField').style.backgroundImage="url(\'"+imgArray[currentImage]+"\')";
+                };
                 //Set the first image to be displayed and increment current image
-                document.getElementById('pictureField').style.backgroundImage="url(\'"+imgArray[currentImage]+"\')";
-                currentImage = currentImage + 1;
+                setImage();
                 //changes the image displayed the the previous one in the image array
                 $('#leftImage').click(function () {
                     if (currentImage > 0) {
                         currentImage = currentImage - 1;
-                        document.getElementById('pictureField').style.backgroundImage="url(\'"+imgArray[currentImage]+"\')";
+                        setImage();
                    }; 
                 });
                 //changes the image to the next one in the image array
                 $('#rightImage').click(function () {
                     if (currentImage < 5) {
                         currentImage = currentImage + 1;
-                        document.getElementById('pictureField').style.backgroundImage="url(\'"+imgArray[currentImage]+"\')";
+                        setImage();
                    }; 
                 });
              }    
@@ -76,12 +80,15 @@
                 <h1>About Me</h1>
                 <p>
                     Hi my name is Jake,
-                    I'm an aspiring programmer in San Fransisco
-                    One of my proudest accomplishments to date is rebuilding the engine of my car. Having no previous experience and only a repair manual, (well, and google), I completely removed, restored, and replaced the engine, fixing a dropped rod. The moment I turned the car on after the fix was one of the proudest I had, followed by one of the worst.
-                     An error had occurred in the rebuild that forced me to remove the transmission, but in the end I fixed it all the same and drove it for the next four years.
-
+                    I'm an aspiring programmer in San Fransisco looking to learn as much as I can in the best ways possible!
+                    I am a fun, knowledgeable, and easy to be around kind of person, and always striving to better to better my self through professional, and personal feedback as well as self reflection.
+                </p>
+                <p>
+                    One of my proudest accomplishments to date is rebuilding the engine of my car. Having no previous experience and only a repair manual, (and Google), I completely removed, restored, and replaced the engine, fixing a dropped rod. The moment I turned the car on after the fix was one of the proudest I had, followed by one of the worst.
+                    An error had occurred in the rebuild that forced me to remove the transmission, but in the end I fixed it all the same and drove it for the next four years.
+                </p>
+                <p>               
                     This is the kind of dedication that I bring to all of my work, from top to bottom I will do what needs to be done, no matter what. When I get involved with a project I have found that time just seems to slip by, and that when I have an idea of what I want to do but, don't know how to proceed, seeing other programmers similar problems and solutions can show me the way.
-
                 </p>
             </article>    
         </div>
@@ -90,16 +97,22 @@
                 <h1>My Experience</h1>
                 <p>
                     I was first introduced to programming four years ago when I was pursuing a Unix system administration path in school. One of the optional courses that was offered was bash shell programming. That course made me fall in love with programming and I focused all of my attention on learning as much as I could. 
-
-                    While my classmates were writing phone book applications, I constructed daemons that monitored and interacted with other users on the system using only basic non-privileged commands. I continued on the Unix system administration path for a while longer and attempted a stand alone C++ course, however the presentation of the material lead me to believe that programming was not for me. 
-
+                </p>
+                <p>
+                    While my classmates were writing phone book applications, I constructed daemons that monitored and interacted with other users on the system using only basic non-privileged commands. I continued on the Unix system administration path for a while longer and attempted a stand alone C++ course, however the presentation of the material lead me to believe that programming was not for me.
+                </p>
+                <p>
                     Last year I discovered Arduino and rekindled my passion for building/hacking things. Since then, I have taken courses in C++, Java, and Objective-C and fallen back in love with programming.
-
-
+                </p>
+                <p>
                     I founded a computer science club based at my home campus. I found the ranks of our club rapidly swelling with people of vastly different skill levels and degrees of interest.
-
+                </p>
+                <p>
                     I planned to build the club around new member projects, but we quickly morphed into more of a computer science tutoring club. As the semester continued, it was not uncommon for me to extend club meetings late into the night, not only to help out my classmates, but because sometimes when you become so involved with something that you love doing, time just slips away.
-
+                </p>
+                <p>
+                    Now I am working full time on building my skills as a programmer with languages such as, Javascript, Ruby, HTML, CSS, and NodeJs. I am currently working a Nodejs web app utilizing sql and Heroku to automate some date entry tasks for a friend you can see the beginnings of the app at 
+                    <a href="https://github.com/Zithrill/BlueStar" class="dark">https://github.com/Zithrill/BlueStar</a>.
                 </p>
             </article>   
         </div>
@@ -107,7 +120,7 @@
             <article class="text-information">
                 <p>
                     <ul>
-                        <li><a href="https://www.linkedin.com/pub/jacob-gribschaw/86/829/abb">Connect with me on LinkedIn</li>
+                        <li><a href="https://www.linkedin.com/pub/jacob-gribschaw/86/829/abb">Connect with me on LinkedIn</a></li>
                         <li></li>
                     </ul>
                 </p>
@@ -115,8 +128,8 @@
         </div>
         <div id="pictureReel", class="main pictureReel hidden">
             <span>
-                <button id="leftImage"> <- Previous Image </button>
-                <button id="rightImage"> Next Image -> </button>
+                <button id="leftImage"><img src="resources/images/Arrow_left.png" width="16" height="16" alt="Previous Image <-"> </button>
+                <button id="rightImage"><img src="resources/images/Arrow_right.png" width="16" height="16" alt="Next Image ->"></button>
             </span>
             <div id="pictureField" class="pictureField"><!-- This will be populated by JS and intentionally left blank --></div>   
         </div>
@@ -127,7 +140,7 @@
         <div class="imageBox bottomImage">
             <img src="resources/images/scuba.jpg">
             <p>
-                Blubing away in Monterey! 
+                Bubbling away in Monterey! 
             </p>
         </div>
     </body>

@@ -35,7 +35,11 @@ body{
 }
 article{
     font-family: 'Lustria', serif;
+    font-size: 1.25em;
     padding: 1em 10% 0 10%
+}
+p{
+
 }
 .topDiv{
     padding: 1em 32% 1em 32%;
@@ -43,7 +47,7 @@ article{
 .main{
     margin: 2em 7% 2em 6%;
     text-align: center;
-    height: 10em;
+    height: auto;
     width: 80em;
     background: #006681;
     background: linear-gradient(bottom, rgba(0,102,129,0), rgba(0,102,129,.7));
@@ -92,7 +96,7 @@ article{
 }
 .pictureReel{
     margin: 0 auto;
-    height: 60em;
+    height: auto;
     width: 60em;
     z-index: 1;
 }
@@ -108,4 +112,7 @@ article{
     -ms-transition: background-image 0.5s ease-in-out;
     -o-transition: background-image 0.5s ease-in-out;
     transition: background-image 0.5s ease-in-out;
+}
+.dark{
+    color: black;
 }
