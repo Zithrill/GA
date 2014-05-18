@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Libre+Baskerville&subset=latin,latin-ext);
-
+@import url(https://fonts.googleapis.com/css?family=Gilda+Display);
 header{
     font-family: 'Libre Baskerville', serif;
     font-size: 1.25em;
@@ -32,18 +32,83 @@ li{
 body{
     background: #cccccc;
 }
+article{
+    padding: 1em 10% 0 10%
+}
 .topDiv{
     padding: 1em 32% 1em 32%;
 }
-.aboutMe{
-    background: blue;
-}
 .main{
+    margin: 2em 7% 2em 6%;
+    text-align: center;
     height: 10em;
-    width: 10em;
-    background: green;
-    transition: all 0.5s linear 0.5s;
+    width: 80em;
+    background: #006681;
+    background: linear-gradient(bottom, rgba(0,102,129,0), rgba(0,102,129,.7));
+    background: -webkit-linear-gradient(bottom, rgba(0,102,129,0), rgba(0,102,129,.7));
+    background: -moz-linear-gradient(bottom, rgba(0,102,129,0), rgba(0,102,129,.7));
+    border-top: 1em solid #006681;
+    border-radius: 4em;
 }
 .hidden{
     display: none;
+}
+.imageBox{
+    position: relative;
+    width: 25%;
+    height: auto;
+    z-index: 1;
+}
+.topImage{
+    position:absolute;
+    right: 0.1%;
+    top: 0px;
+    z-index: 2;
+    padding: 1em 1em 0 0;
+}
+.bottomImage{
+    position:absolute;
+
+    z-index: 2;
+    padding: 0.5em 1em 1em 0em;
+}
+.imageBox p{
+    font-family: 'Gilda Display', serif;
+    position: absolute;
+    bottom: 1em;
+    left: auto;
+    width: 100%;
+
+    margin: 0 auto;
+    z-index:6;
+    color: #fff;
+    text-align: center;
+    font-size:24px;
+    font-weight:bold;
+    background-color: rgba(204,204,204, 0.4);
+}
+.leftImage{
+
+}
+.rightImage{
+
+}
+.pictureReel{
+    margin: 0 auto;
+    height: 60em;
+    width: 60em;
+    z-index: 1;
+}
+.pictureField{
+    background-position: top;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    height: 60em;
+    width: 60em;
+    z-index: 2;
+    -webkit-transition: background-image 0.5s ease-in-out;
+    -moz-transition: background-image 0.5s ease-in-out;
+    -ms-transition: background-image 0.5s ease-in-out;
+    -o-transition: background-image 0.5s ease-in-out;
+    transition: background-image 0.5s ease-in-out;
 }

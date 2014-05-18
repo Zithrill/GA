@@ -7,6 +7,7 @@
         <script type="text/javascript">
             //We want to wait until the page loads to run this script
             window.onload = function(){
+
                 //This array fold the element ids so that we can call them
                 var pageSections = ["#aboutMe","#experience","#contactInfo","#pictureReel"];
                 //Button ID's
@@ -27,9 +28,28 @@
                 // On first run we want to make sure that none of the elements are displayed
                 // To do this we start off with display being set to none then removing the 
                 // class that is doing that so that we can see it again after we trigger the event
-                $.each( pageSections, function(innerIndex, innerValue){
-                    $(innerValue).hide(10);
+                $.each( pageSections, function(innerIndex, innerValue){    
                     $(innerValue).removeClass('hidden');
+                    $(innerValue).hide(10);
+                });
+                var currentImage = 0;
+                var imgArray = [];
+                for (var i = 0; i <= 5; i++) {
+                    imgArray[i] = 'resources/images/image-' + i + '.jpg';
+                };
+                //changes the image displayed the the previous one in the image array
+                $('#leftImage').click(function () {
+                    if (currentImage > 0) {
+                        currentImage = currentImage - 1;
+                        document.getElementById('pictureField').style.backgroundImage="url(\'"+imgArray[currentImage]+"\')";
+                   }; 
+                });
+                //changes the image to the next one in the image array
+                $('#rightImage').click(function () {
+                    if (currentImage < 5) {
+                        currentImage = currentImage + 1;
+                        document.getElementById('pictureField').style.backgroundImage="url(\'"+imgArray[currentImage]+"\')";
+                   }; 
                 });
              }    
         </script>
@@ -41,10 +61,10 @@
             </div>
             <h1>Jake</h1>
             <ul>
-                <li><button id="aboutMeLink">About Me</button></li>
-                <li><button id="experienceLink">My Experience</button></li>
-                <li><button id="contactInfoLink">Contact Info</button></li>
-                <li><button id="pictureReelLink">Life in Moving Stills</button></li>
+                <li><a id="aboutMeLink">About Me</a></li>
+                <li><a id="experienceLink">My Experience</a></li>
+                <li><a id="contactInfoLink">Contact Info</a></li>
+                <li><a id="pictureReelLink">Life in Moving Stills</a></li>
             </ul>
         </header>
         <div id="aboutMe", class="main aboutMe hidden">
@@ -72,7 +92,21 @@
             </article>   
         </div>
         <div id="pictureReel", class="main pictureReel hidden">
-            <!-- This will be populated by JS and intentionally left blank -->
+            <span>
+                <button id="leftImage"> <- Previous Image </button>
+                <button id="rightImage"> Next Image -> </button>
+            </span>
+            <div id="pictureField" class="pictureField"><!-- This will be populated by JS and intentionally left blank --></div>   
+        </div>
+        <div class="imageBox topImage">
+            <img src="resources/images/fun-at-the-beach.jpg">
+            <p>A day at the beach with the boys.</p>
+        </div>
+        <div class="imageBox bottomImage">
+            <img src="resources/images/scuba.jpg">
+            <p>
+                Blubing away in Monterey! 
+            </p>
         </div>
     </body>
 </html>
