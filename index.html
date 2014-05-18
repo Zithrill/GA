@@ -32,11 +32,15 @@
                     $(innerValue).removeClass('hidden');
                     $(innerValue).hide(10);
                 });
+                //use this to keep track of which image is being displayed
                 var currentImage = 0;
                 var imgArray = [];
                 for (var i = 0; i <= 5; i++) {
                     imgArray[i] = 'resources/images/image-' + i + '.jpg';
                 };
+                //Set the first image to be displayed and increment current image
+                document.getElementById('pictureField').style.backgroundImage="url(\'"+imgArray[currentImage]+"\')";
+                currentImage = currentImage + 1;
                 //changes the image displayed the the previous one in the image array
                 $('#leftImage').click(function () {
                     if (currentImage > 0) {
@@ -72,7 +76,12 @@
                 <h1>About Me</h1>
                 <p>
                     Hi my name is Jake,
-                    I'm an aspiring programmer in San Fransisco 
+                    I'm an aspiring programmer in San Fransisco
+                    One of my proudest accomplishments to date is rebuilding the engine of my car. Having no previous experience and only a repair manual, (well, and google), I completely removed, restored, and replaced the engine, fixing a dropped rod. The moment I turned the car on after the fix was one of the proudest I had, followed by one of the worst.
+                     An error had occurred in the rebuild that forced me to remove the transmission, but in the end I fixed it all the same and drove it for the next four years.
+
+                    This is the kind of dedication that I bring to all of my work, from top to bottom I will do what needs to be done, no matter what. When I get involved with a project I have found that time just seems to slip by, and that when I have an idea of what I want to do but, don't know how to proceed, seeing other programmers similar problems and solutions can show me the way.
+
                 </p>
             </article>    
         </div>
@@ -80,14 +89,27 @@
             <article class="text-information">
                 <h1>My Experience</h1>
                 <p>
-                    C++, Java, Ruby, NodeJS, JavaScript
+                    I was first introduced to programming four years ago when I was pursuing a Unix system administration path in school. One of the optional courses that was offered was bash shell programming. That course made me fall in love with programming and I focused all of my attention on learning as much as I could. 
+
+                    While my classmates were writing phone book applications, I constructed daemons that monitored and interacted with other users on the system using only basic non-privileged commands. I continued on the Unix system administration path for a while longer and attempted a stand alone C++ course, however the presentation of the material lead me to believe that programming was not for me. 
+
+                    Last year I discovered Arduino and rekindled my passion for building/hacking things. Since then, I have taken courses in C++, Java, and Objective-C and fallen back in love with programming.
+
+
+                    I founded a computer science club based at my home campus. I found the ranks of our club rapidly swelling with people of vastly different skill levels and degrees of interest.
+
+                    I planned to build the club around new member projects, but we quickly morphed into more of a computer science tutoring club. As the semester continued, it was not uncommon for me to extend club meetings late into the night, not only to help out my classmates, but because sometimes when you become so involved with something that you love doing, time just slips away.
+
                 </p>
             </article>   
         </div>
         <div id="contactInfo", class="main contactInfo hidden">
             <article class="text-information">
                 <p>
-                    linkedIn
+                    <ul>
+                        <li><a href="https://www.linkedin.com/pub/jacob-gribschaw/86/829/abb">Connect with me on LinkedIn</li>
+                        <li></li>
+                    </ul>
                 </p>
             </article>   
         </div>

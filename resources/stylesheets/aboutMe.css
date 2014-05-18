@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Libre+Baskerville&subset=latin,latin-ext);
 @import url(https://fonts.googleapis.com/css?family=Gilda+Display);
+@import url(https://fonts.googleapis.com/css?family=Lustria);
 header{
     font-family: 'Libre Baskerville', serif;
     font-size: 1.25em;
@@ -33,6 +34,7 @@ body{
     background: #cccccc;
 }
 article{
+    font-family: 'Lustria', serif;
     padding: 1em 10% 0 10%
 }
 .topDiv{
@@ -47,6 +49,8 @@ article{
     background: linear-gradient(bottom, rgba(0,102,129,0), rgba(0,102,129,.7));
     background: -webkit-linear-gradient(bottom, rgba(0,102,129,0), rgba(0,102,129,.7));
     background: -moz-linear-gradient(bottom, rgba(0,102,129,0), rgba(0,102,129,.7));
+    background: -ms-linear-gradient(bottom, rgba(0,102,129,0), rgba(0,102,129,.7));
+    background: -o-linear-gradient(bottom, rgba(0,102,129,0), rgba(0,102,129,.7));
     border-top: 1em solid #006681;
     border-radius: 4em;
 }
@@ -78,7 +82,6 @@ article{
     bottom: 1em;
     left: auto;
     width: 100%;
-
     margin: 0 auto;
     z-index:6;
     color: #fff;
@@ -86,12 +89,6 @@ article{
     font-size:24px;
     font-weight:bold;
     background-color: rgba(204,204,204, 0.4);
-}
-.leftImage{
-
-}
-.rightImage{
-
 }
 .pictureReel{
     margin: 0 auto;
